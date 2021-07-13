@@ -18,6 +18,7 @@ public class PracticeFormTests {
         baseUrl = "https://demoqa.com";
         startMaximized = true;
     }
+
     @Test
     void positiveFillTest() {
         open("/automation-practice-form");
@@ -50,7 +51,7 @@ public class PracticeFormTests {
         $("tbody").$(byText("Date of Birth")).parent().shouldHave(text("04 March,1990"));
         $("tbody").$(byText("Subjects")).parent().shouldHave(text("Biology"));
         $("tbody").$(byText("Hobbies")).parent().shouldHave(text("Music"));
-        $("tbody").$(byText("Picture")).parent().shouldHave(text("fox.jpeg"));
+        $("tbody").$(byText("Picture")).parent().shouldHave(text("fox2.jpeg"));
         $("tbody").$(byText("Address")).parent().shouldHave(text("Street1"));
         $("tbody").$(byText("State and City")).parent().shouldHave(text("NCR Noida"));
 
