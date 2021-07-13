@@ -11,11 +11,14 @@ import static com.codeborne.selenide.Configuration.startMaximized;
 import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.open;
+import static utils.RandomUtils.getRandomEmail;
+import static utils.RandomUtils.getRandomString;
 
 
-public class PracticeWithTestData {
-    public static String firstName = "Julia";
-    public static String lastName = "Fox";
+public class PracticeWithRandomUtils {
+    public static String firstName = getRandomString(10);
+    public static String lastName = getRandomString(10);
+    public static String email = getRandomEmail();
 
     @BeforeAll
     static void setup() {
@@ -28,8 +31,7 @@ public class PracticeWithTestData {
         open("/automation-practice-form");
 
         $("#firstName").setValue(firstName); // имя
-        $("#lastName").setValue(lastName); // фамилия
-        $("#userEmail").setValue("julia@qaguru.com"); // почта
+        $("#lastName").setValue(email); // почта
         $("[name=gender][value=Female]").parent().click();
         $("#userNumber").setValue("0123456789"); // номер телефона
         $("#dateOfBirthInput").clear();
@@ -48,8 +50,8 @@ public class PracticeWithTestData {
         // сравнение введенных данных
 
         $("#example-modal-sizes-title-lg").shouldHave(text("Thanks for submitting the form"));
-        $("tbody").$(byText("Student Name")).parent().shouldHave(text("Julia Fox"));
-        $("tbody").$(byText("Student Email")).parent().shouldHave(text("julia@qaguru.com"));
+        $(".table-responsive").shouldHave(text(firstName + " " + lastName));
+        $("tbody").$(byText("Student Email")).parent().shouldHave(text(email));
         $("tbody").$(byText("Gender")).parent().shouldHave(text("Female"));
         $("tbody").$(byText("Mobile")).parent().shouldHave(text("0123456789"));
         $("tbody").$(byText("Date of Birth")).parent().shouldHave(text("04 March,1990"));
