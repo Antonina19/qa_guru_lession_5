@@ -33,7 +33,8 @@ public class PracticeWithFaker {
         open("/automation-practice-form");
 
         $("#firstName").setValue(firstName); // имя
-        $("#lastName").setValue(email); // почта
+        $("#lastName").setValue(lastName);
+        $("#userEmail").setValue(email); // почта
         $("[name=gender][value=Female]").parent().click();
         $("#userNumber").setValue("0123456789"); // номер телефона
         $("#dateOfBirthInput").clear();

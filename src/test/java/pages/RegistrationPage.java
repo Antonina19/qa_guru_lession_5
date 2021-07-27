@@ -9,7 +9,6 @@ import static com.codeborne.selenide.Selenide.open;
 import static java.lang.String.format;
 
 public class RegistrationPage {
-
     private final static String FORM_TITLE = "Student Registration Form";
     private final static String RESULTS_TITLE = "Thanks for submitting the form";
 
@@ -32,7 +31,6 @@ public class RegistrationPage {
 
     public RegistrationPage typeEmail(String email){
         $("#userEmail").setValue(email);
-
         return this;
     }
 
@@ -50,7 +48,6 @@ public class RegistrationPage {
 
     public RegistrationPage typePhone(String phone){
         $("#userNumber").setValue(phone);
-
         return this;
     }
 
